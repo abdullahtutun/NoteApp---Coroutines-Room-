@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_graph"
+    app:startDestination="@id/notesFragment">
+
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.example.noteapp.fragment.NotesFragment"
+        android:label="Notlar"
+        tools:layout="@layout/fragment_notes" >
+        <action
+            android:id="@+id/action_notesFragment_to_editNoteFragment"
+            app:destination="@id/editNoteFragment" />
+        <action
+            android:id="@+id/action_notesFragment_to_createNoteFragment"
+            app:destination="@id/createNoteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNoteFragment"
+        android:name="com.example.noteapp.fragment.CreateNoteFragment"
+        android:label="Not Ekle"
+        tools:layout="@layout/fragment_create_note" >
+        <action
+            android:id="@+id/action_createNoteFragment_to_notesFragment"
+            app:destination="@id/notesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editNoteFragment"
+        android:name="com.example.noteapp.fragment.EditNoteFragment"
+        android:label="Notu Düzenle"
+        tools:layout="@layout/fragment_edit_note" >
+        <action
+            android:id="@+id/action_editNoteFragment_to_notesFragment"
+            app:destination="@id/notesFragment" />
+        <argument
+            android:name="data"
+            app:argType="com.example.noteapp.model.Notes" />
+    </fragment>
+</navigation>
